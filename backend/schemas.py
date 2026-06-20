@@ -28,3 +28,13 @@ class AccountRead(AccountBase):
 
     id: int
     created_at: datetime
+
+
+class HealthScoreResult(BaseModel):
+    score: int
+    risk_level: str
+    signals: list[str]
+
+
+class AccountReadWithScore(AccountRead):
+    health: HealthScoreResult
