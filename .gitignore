@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# SQLite database
+*.db
+*.sqlite
+*.sqlite3
+
+# pytest
+.pytest_cache/
+.cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# MyPy / type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+logs/
