@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend.models import Account
 from backend.schemas import AccountCreate, AccountRead, AccountReadWithScore
+from backend.services.ai_recommendations import generate_recommendation
 from backend.services.health_score import compute_health_score
 
 router = APIRouter()
@@ -30,11 +31,14 @@ def list_accounts(db: Session = Depends(get_db)):
 
 
 @router.get("/accounts/{account_id}", response_model=AccountReadWithScore)
-def get_account(account_id: int, db: Session = Depends(get_db)):
+async def get_account(account_id: int, db: Session = Depends(get_db)):
     account = db.get(Account, account_id)
     if account is None:
         raise HTTPException(status_code=404, detail="Account not found")
+    health = compute_health_score(account)
+    recommendation = await generate_recommendation(account, health)
     return AccountReadWithScore(
         **AccountRead.model_validate(account).model_dump(),
-        health=compute_health_score(account),
+        health=health,
+        recommendation=recommendation,
     )

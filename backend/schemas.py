@@ -38,3 +38,4 @@ class HealthScoreResult(BaseModel):
 
 class AccountReadWithScore(AccountRead):
     health: HealthScoreResult
+    recommendation: str | None = None
