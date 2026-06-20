@@ -1,1 +1,44 @@
-<!-- Main HTML entry point for the onboarding health dashboard UI -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Onboarding Health Dashboard</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>SaaS Onboarding Health Dashboard</h1>
+      <p class="header-subtitle">Account health overview powered by real-time engagement signals</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="summary-bar" id="summary-bar" aria-label="Summary">
+      <div class="summary-card">
+        <span class="summary-count" id="count-total">—</span>
+        <span class="summary-label">Total Accounts</span>
+      </div>
+      <div class="summary-card healthy">
+        <span class="summary-count" id="count-healthy">—</span>
+        <span class="summary-label">Healthy</span>
+      </div>
+      <div class="summary-card at-risk">
+        <span class="summary-count" id="count-at-risk">—</span>
+        <span class="summary-label">At Risk</span>
+      </div>
+      <div class="summary-card critical">
+        <span class="summary-count" id="count-critical">—</span>
+        <span class="summary-label">Critical</span>
+      </div>
+    </section>
+
+    <div id="error-banner" class="error-banner hidden" role="alert"></div>
+
+    <section class="accounts-grid" id="accounts-grid" aria-label="Account cards"></section>
+  </main>
+
+  <script src="static/js/app.js"></script>
+</body>
+</html>
